@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { useState } from "react";
-import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
+// import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 
 
 
@@ -53,7 +53,7 @@ const Hero = () => {
           hover:bg-[#1c8bc0] transition
         "
       >
-        <FaTelegramPlane size={20} />
+        {/* <FaTelegramPlane size={20} /> */}
         Telegram
       </a>
 
@@ -63,13 +63,14 @@ const Hero = () => {
         target="_blank"
         rel="noopener noreferrer"
         className="
+
           flex items-center justify-center gap-3
           px-4 py-3 rounded-full
           bg-green-500 text-white
           hover:bg-green-600 transition
         "
-      >
-        <FaWhatsapp size={20} />
+      >   
+        {/* <FaWhatsapp size={20} /> */}
         WhatsApp
       </a>
     </motion.div>
