@@ -19,9 +19,11 @@ import {
   starbucks,
   tesla,
   shopify,
-  carrent,
-  jobit,
-  tripguide,
+  sawir,
+  somChat,
+  
+  movieFinder,
+nike,
   threejs,
 } from "../assets";
 
@@ -30,9 +32,10 @@ export const navLinks = [
     id: "about",
     title: "About",
   },
+
   {
-    id: "work",
-    title: "Work",
+    id: "projects",
+    title: "projects",
   },
   {
     id: "contact",
@@ -54,7 +57,7 @@ const services = [
     icon: backend,
   },
   {
-    title: "Content Creator",
+    title: "Quick-learner",
     icon: creator,
   },
 ];
@@ -117,10 +120,10 @@ const technologies = [
 const experiences = [
   {
     title: "React.js Developer",
-    company_name: "Starbucks",
+    company_name: "Zaad-Collections",
     icon: starbucks,
     iconBg: "#383E56",
-    date: "March 2020 - April 2021",
+    date: "september 2023 - november 2023",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
       "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
@@ -130,7 +133,7 @@ const experiences = [
   },
   {
     title: "React Native Developer",
-    company_name: "Tesla",
+    company_name: "Movie-Finder app",
     icon: tesla,
     iconBg: "#E6DEDD",
     date: "Jan 2021 - Feb 2022",
@@ -173,17 +176,17 @@ const testimonials = [
   {
     testimonial:
       "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
-    name: "Sara Lee",
-    designation: "CFO",
-    company: "Acme Co",
+    name: "Markos Abera",
+    designation: "COO",
+    company: "#Arbamicnh technology Directer",
     image: "https://randomuser.me/api/portraits/women/4.jpg",
   },
   {
     testimonial:
       "I've never met a web developer who truly cares about their clients' success like Rick does.",
-    name: "Chris Brown",
+    name: "Henok Million",
     designation: "COO",
-    company: "DEF Corp",
+    company: "eaglelion system technology",
     image: "https://randomuser.me/api/portraits/men/5.jpg",
   },
   {
@@ -198,58 +201,71 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
-    description:
-      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
+    name: "Zaad-Collections",
+    description:"Zaad Collections is an online shopping destination for women, offering stylish fashion, accessories, and lifestyle products with a seamless and personalized browsing experience.",
+      
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
-      },
-      {
-        name: "mongodb",
-        color: "green-text-gradient",
-      },
+      
+},
+     
       {
         name: "tailwind",
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
-    source_code_link: "https://github.com/",
+    image: sawir,
+    source_code_link: "https://github.com/abdiladifrazaam/Ecommerce-Web",
   },
   {
-    name: "Job IT",
+    name:"SomChat App",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "SomChat is a real-time chat application that allows users to connect and communicate instantly through text messages, fostering seamless conversations and social interactions.",
+    tags: [
+      {
+        name: "MERN",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "tailwind",
+        color: "green-text-gradient",
+      },
+    ],
+    image: somChat,
+    source_code_link: "https://github.com/abdiladifrazaam/Ecommerce-Web",
+  },
+  
+  {
+    name: "Movie finder App",
+    description:
+      "this is MovieFinder App which you can search every that you are intresting to watch by just submitting it's name and clicking search buttoneb application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
     tags: [
       {
         name: "react",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "tailwid css",
         color: "green-text-gradient",
       },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+     
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
+    image: movieFinder,
+    source_code_link: "https://github.com/abdiladifrazaam/Movie-finder-App.git",
   },
   {
-    name: "Trip Guide",
+    name: "Nike App",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "A dynamic Nike landing page showcasing the latest performance footwear, athletic apparel, and innovative sportswear, featuring exclusive collections, limited-edition releases, and personalized recommendations for athletes of all levels.",
     tags: [
       {
         name: "nextjs",
         color: "blue-text-gradient",
       },
       {
-        name: "supabase",
+        name: "tailwind",
         color: "green-text-gradient",
       },
       {
@@ -257,8 +273,8 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
-    source_code_link: "https://github.com/",
+    image: nike,
+    source_code_link: "https://github.com/abdiladifrazaam/Nike-App.git",
   },
 ];
 

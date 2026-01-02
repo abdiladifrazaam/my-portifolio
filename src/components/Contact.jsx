@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaTelegram } from "react-icons/fa";
 
 import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
@@ -39,7 +40,7 @@ const Contact = () => {
           from_name: form.name,
           to_name: "JavaScript Mastery",
           from_email: form.email,
-          to_email: "sujata@jsmastery.pro",
+          to_email: "abdilathifnasri@gmail.com",
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -63,6 +64,26 @@ const Contact = () => {
         }
       );
   };
+
+  // Social media links
+  const socialLinks = [
+    {
+      icon: <FaGithub />,
+      url: "https://github.com/abdiladifrazaam",
+      name: "GitHub"
+    },
+    
+    {
+      icon: <FaWhatsapp />,
+      url: "https://wa.me/+252906444290",
+      name: "WhatsApp"
+    },
+    {
+      icon: <FaTelegram />,
+      url: "https://t.me/+251905143856",
+      name: "Telegram"
+    }
+  ];
 
   return (
     <div
@@ -121,6 +142,25 @@ const Contact = () => {
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
+
+        {/* Social Media Icons Section */}
+        <div className="mt-8">
+          <p className="text-white font-medium mb-4">connect with me on:</p>
+          <div className="flex flex-wrap gap-4">
+            {socialLinks.map((social, index) => (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white text-3xl hover:text-blue-500 duration-300"
+                aria-label={social.name}
+              >
+                {social.icon}
+              </a>
+            ))}
+          </div>
+        </div>
       </motion.div>
 
       <motion.div
