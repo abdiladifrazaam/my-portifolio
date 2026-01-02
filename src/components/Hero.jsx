@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import { styles } from "../styles";
 import { useState } from "react";
-// import { FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
-
-
 
 const Hero = () => {
   const [open, setOpen] = useState(false);
@@ -53,7 +50,7 @@ const Hero = () => {
           hover:bg-[#1c8bc0] transition
         "
       >
-        {/* <FaTelegramPlane size={20} /> */}
+       
         Telegram
       </a>
 
@@ -70,7 +67,7 @@ const Hero = () => {
           hover:bg-green-600 transition
         "
       >   
-        {/* <FaWhatsapp size={20} /> */}
+    
         WhatsApp
       </a>
     </motion.div>
