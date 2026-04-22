@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { FaGithub, FaLinkedin, FaWhatsapp, FaTelegram } from "react-icons/fa";
@@ -8,8 +8,18 @@ import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+const RECIPIENT_EMAIL = "abdilathifnasri@gmail.com";
+const EMAILJS_SERVICE_ID =
+  import.meta.env.VITE_EMAILJS_SERVICE_ID ||
+  import.meta.env.VITE_APP_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID =
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID ||
+  import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY =
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY ||
+  import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY;
+
 const Contact = () => {
-  const formRef = useRef();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -17,6 +27,7 @@ const Contact = () => {
   });
 
   const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState({ type: "", text: "" });
 
   const handleChange = (e) => {
     const { target } = e;
@@ -31,38 +42,62 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    setStatus({ type: "", text: "" });
+
+    const hasEmailJSConfig =
+      EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY;
+
+    if (!hasEmailJSConfig) {
+      setLoading(false);
+      setStatus({
+        type: "error",
+        text: "Email service is not configured yet. Add your EmailJS keys to the .env file.",
+      });
+      return;
+    }
+
+    const templateParams = {
+      from_name: form.name,
+      name: form.name,
+      user_name: form.name,
+      from_email: form.email,
+      email: form.email,
+      user_email: form.email,
+      reply_to: form.email,
+      to_name: "Abdiladif",
+      to_email: RECIPIENT_EMAIL,
+      recipient: RECIPIENT_EMAIL,
+      message: form.message,
+    };
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: form.name,
-          to_name: "JavaScript Mastery",
-          from_email: form.email,
-          to_email: "abdilathifnasri@gmail.com",
-          message: form.message,
-        },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
       )
-      .then(
-        () => {
-          setLoading(false);
-          alert("Thank you. I will get back to you as soon as possible.");
+      .then(() => {
+        setLoading(false);
+        setStatus({
+          type: "success",
+          text: "Message sent successfully.",
+        });
 
-          setForm({
-            name: "",
-            email: "",
-            message: "",
-          });
-        },
-        (error) => {
-          setLoading(false);
-          console.error(error);
-
-          alert("Ahh, something went wrong. Please try again.");
-        }
-      );
+        setForm({
+          name: "",
+          email: "",
+          message: "",
+        });
+      })
+      .catch((error) => {
+        setLoading(false);
+        console.error(error);
+        setStatus({
+          type: "error",
+          text: "Could not send the message. Please try again.",
+        });
+      });
   };
 
   // Social media links
@@ -82,7 +117,8 @@ const Contact = () => {
       icon: <FaTelegram />,
       url: "https://t.me/+251905143856",
       name: "Telegram"
-    }
+    },
+{ icon: <FaLinkedin />, url: "in/abdiladif-mohamoud-33882a365", name: "LinkedIn" },
   ];
 
   return (
@@ -97,7 +133,6 @@ const Contact = () => {
         <h3 className={styles.sectionHeadText}>Contact.</h3>
 
         <form
-          ref={formRef}
           onSubmit={handleSubmit}
           className='mt-12 flex flex-col gap-8'
         >
@@ -109,6 +144,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
+              required
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -119,7 +155,8 @@ const Contact = () => {
               name='email'
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your web address?"
+              placeholder="What's your email address?"
+              required
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -131,6 +168,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
+              required
               className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
@@ -141,6 +179,16 @@ const Contact = () => {
           >
             {loading ? "Sending..." : "Send"}
           </button>
+
+          {status.text && (
+            <p
+              className={`text-sm font-medium ${
+                status.type === "success" ? "text-green-400" : "text-red-400"
+              }`}
+            >
+              {status.text}
+            </p>
+          )}
         </form>
 
         {/* Social Media Icons Section */}

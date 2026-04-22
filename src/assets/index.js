@@ -1,14 +1,8 @@
 import logo from "./logo.svg";
-import backend from "./backend.png";
-import creator from "./creator.png";
-import mobile from "./mobile.png";
-import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
-import somChat from "./somChat.png";
 import css from "./tech/css.png";
-import docker from "./tech/docker.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
@@ -16,29 +10,30 @@ import javascript from "./tech/javascript.png";
 import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
-import sawir from "./sawir.png";
-import movieFinder from "./movieFinder.png";
-import nike from "./nike.png";
+import reactnative from "./reactnative.jpg";
+import userInterface from "./userInterface.jpg";
+import webdeveloper from "./webdeveloper.jpg";
+import quicklearner from "./quicklearner.webp";
+import foodr from "./foodr.webp";
+import goalmanager from "./goalmanager.webp";
+import nationaljob from "./nationaljob.jpg";
+
+
+
+
 
 export {
   logo,
-  backend,
-  creator,
-  mobile,
-  web,
   github,
   menu,
   close,
   css,
-  docker,
+  nationaljob,
+  foodr,
+  goalmanager,
   figma,
   git,
   html,
@@ -46,16 +41,11 @@ export {
   mongodb,
   nodejs,
   reactjs,
-  redux,
   tailwind,
   typescript,
   threejs,
-  meta,
-  shopify,
-  starbucks,
-  tesla,
-  sawir,
- movieFinder,
-  nike,
-  somChat,
+  userInterface,
+  webdeveloper,
+  quicklearner,
+  reactnative,
 };
